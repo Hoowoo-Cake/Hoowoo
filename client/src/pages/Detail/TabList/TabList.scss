@@ -1,0 +1,18 @@
+@import "/src/component/reset";
+
+
+.tabTitle{
+  font: 1.1rem/1 'IBMPlexSansKR-';
+  color: #616161;
+  background-color: #eee;
+  padding: 10px;
+  margin: 10px auto;
+  border-radius: 5px;
+  width: 30%;
+  text-align: center;
+}
+
+.tabText{
+  text-align: center;
+  padding: 1rem;
+}

@@ -1,0 +1,20 @@
+@import "/src/component/reset";
+
+// right
+.right{
+  // height: 100vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.img_detail{
+  max-width: 500px;
+}
+
+// SelectColor_detail
+.selectBackgroundColor{
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  flex-wrap: wrap;
+}

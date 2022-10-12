@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>회원가입</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+  <style>
+    #form3Example1cg,
+    #form3Example3cg,
+    #form3Example4cg {
+      font-size: 16px;
+    }
+    a{
+      text-decoration: none;
+      color:#000;
+      cursor: default;
+    }
+  </style>
+</head>
+
+<body>
+  <%- include('nav.html') %>
+    <section class="mt-3" style="background-color: #fff;">
+    <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+      <div class="container h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+            <div class="card" style="border-radius: 15px;">
+              <div class="card-body p-5">
+                <h2 class="text-uppercase text-center mb-5">케이크 리스트</h2>
+
+                <% for(let i = 0; i < ITEM.length; i++){%>
+                  <a href="/item/detail/<%=ITEM[i]._id%>" class="posts_link">  
+                    <p>이름 : <%=ITEM[i].name%></p>
+                    <p>설명 : <%=ITEM[i].detail%></p>
+                    <p>가격 : <%=ITEM[i].price%></p>
+                    <p>배송 : <%=ITEM[i].delivery%></p>
+                    <% if(ITEM[i].pickupHour){%>
+                      <p>픽업 : <%=ITEM[i].pickupHour%></p>
+                    <%}%>
+                    <p>종류 : <%=ITEM[i].kindOf%></p>
+                    <p>색상 : <%=ITEM[i].color%></p>
+                    <p>맛 : <%=ITEM[i].flavor%></p>
+                    <p>크기 : <%=ITEM[i].size%></p>
+                    <p>위치 : <%=ITEM[i].address%></p>
+                    <p>수량 : <%=ITEM[i].stock%></p>
+                    <p>상태 : <%=ITEM[i].status%></p>
+                    <p>등록 날짜 : <%=ITEM[i].regDate%></p>
+                    <% if (ITEM[i].img1 !=null) { %>
+                      <img src="../uploads/<%= ITEM[i].img1 %>" style="width: 500px;">
+                    <% } %>
+                    <% if (ITEM[i].img2 !=null) { %>
+                      <img src="../uploads/<%= ITEM[i].img2 %>" style="width: 500px;">
+                    <% } %>
+                    <% if (ITEM[i].img3 !=null) { %>
+                      <img src="../uploads/<%= ITEM[i].img3 %>" style="width: 500px;">
+                    <% } %>
+                  </a>
+                  <button type="submit" class="btn btn-primary" onclick="location.href='order/<%= ITEM[i].name %>'">주문하기</button>
+                  <hr>
+                <%}%>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+
+</html>
